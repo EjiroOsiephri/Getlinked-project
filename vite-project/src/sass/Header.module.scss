@@ -41,3 +41,35 @@
 .logo {
   margin-top: 0.85em;
 }
+.hamburger-section {
+  display: none;
+}
+@media screen and (max-width: 1040px) {
+  .headers {
+    justify-content: space-between;
+    margin: 0 0.7em 0 0.7em;
+  }
+  .listItem {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: -100%;
+    gap: 28px;
+    transition: 0.4s;
+    z-index: -3;
+    background: linear-gradient(0deg, #150e28, #150e28),
+      linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.04),
+        rgba(255, 255, 255, 0.04)
+      );
+  }
+  .hamburger-section {
+    margin-top: 1.1rem;
+    display: initial;
+  }
+}
