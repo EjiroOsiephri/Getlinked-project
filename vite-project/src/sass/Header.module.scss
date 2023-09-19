@@ -1,0 +1,43 @@
+.headers {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.4rem;
+}
+.headers img {
+  display: flex;
+}
+.listItem {
+  display: flex;
+  align-items: center;
+}
+.listItem li {
+  margin: 0 1.3em 0 1.3em;
+  color: rgba(255, 255, 255, 1);
+}
+.btn {
+  display: flex;
+  align-items: center;
+}
+.listItem button {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  background: linear-gradient(
+    270deg,
+    #903aff 0%,
+    #d434fe 56.42%,
+    #ff26b9 99.99%,
+    #fe34b9 100%
+  );
+  width: 132px;
+  height: 56px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 2em;
+}
+.logo {
+  margin-top: 0.85em;
+}
