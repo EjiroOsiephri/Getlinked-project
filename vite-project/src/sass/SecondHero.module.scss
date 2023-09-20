@@ -3,6 +3,8 @@
   justify-content: space-around;
   align-items: center;
   margin-top: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 .bigideaTextSection {
   max-width: 560px;
@@ -29,10 +31,17 @@
 span {
   color: rgba(212, 52, 254, 1);
 }
+.btn {
+  margin-top: 2rem;
+  margin-left: -8%;
+}
 @media screen and (max-width: 835px) {
   .second-hero-main {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 30px;
+  }
+  .bigideaTextSection > img:first-child {
+    display: none;
   }
   .bigideaTextSection > p,
   h1 {
@@ -41,5 +50,11 @@ span {
   .arrow {
     transform: translate(50%, -50%);
     margin-top: 3rem;
+  }
+  .btn {
+    margin-left: -10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
