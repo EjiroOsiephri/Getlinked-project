@@ -49,6 +49,8 @@ const Header = () => {
                 color: "white",
                 cursor: "pointer",
                 fontSize: "20px",
+                position: "relative",
+                zIndex: "6",
               }}
             />
           ) : (
@@ -62,6 +64,7 @@ const Header = () => {
           )}
         </div>
       </nav>
+      <div className={Classes["line"]}></div>
     </>
   );
 };

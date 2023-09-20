@@ -1,0 +1,13 @@
+.main-firstSection {
+  display: flex;
+  justify-content: space-around;
+}
+img {
+  max-width: 90%;
+}
+
+@media screen and (max-width: 678px) {
+  .main-firstSection {
+    flex-direction: column;
+  }
+}

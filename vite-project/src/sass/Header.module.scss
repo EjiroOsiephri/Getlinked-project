@@ -36,13 +36,17 @@
   border: none;
   cursor: pointer;
   border-radius: 4px;
-  margin-left: 2em;
+  margin-left: 3em;
 }
 .logo {
   margin-top: 0.85em;
 }
 .hamburger-section {
   display: none;
+}
+.line {
+  border: 0.7px solid rgba(255, 255, 255, 0.18);
+  margin-top: 2.2em;
 }
 @media screen and (max-width: 1040px) {
   .headers {
@@ -60,7 +64,7 @@
     left: -100%;
     gap: 28px;
     transition: 0.4s;
-    z-index: -3;
+    z-index: 6;
     background: linear-gradient(0deg, #150e28, #150e28),
       linear-gradient(
         0deg,
