@@ -33,6 +33,7 @@ const FirstHero = () => {
           <img src={man} alt="man" />
         </section>
       </main>
+      <div className={Classes["line"]}></div>
     </>
   );
 };

@@ -49,12 +49,19 @@ img {
   margin-top: 2em;
   margin-bottom: 2em;
 }
-
 .textsection > h1 {
   font-style: italic;
   color: rgba(255, 255, 255, 1);
   margin-left: 1.3rem;
 }
+.secondSection {
+  margin-right: 1%;
+}
+.line {
+  border: 0.7px solid rgba(255, 255, 255, 0.18);
+  margin-top: -5px;
+}
+
 @media screen and (max-width: 835px) {
   .main-firstSection {
     flex-direction: column;
