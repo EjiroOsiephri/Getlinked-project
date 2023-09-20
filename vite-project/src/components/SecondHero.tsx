@@ -109,6 +109,7 @@ const SecondHero = () => {
           </div>
         </section>
       </main>
+      <div className={Classes["line"]}></div>
     </>
   );
 };
