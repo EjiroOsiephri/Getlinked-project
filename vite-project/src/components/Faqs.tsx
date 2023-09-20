@@ -9,7 +9,7 @@ import question3 from "../assets/_@3x.png";
 const Faqs = () => {
   return (
     <>
-      <main className={Classes["main-faqs"]}>
+      <main id="faq" className={Classes["main-faqs"]}>
         <section>
           <img src={star} alt="" />
           <h1>
@@ -57,13 +57,14 @@ const Faqs = () => {
         <section>
           <div className={Classes["questions-section"]}>
             <img src={question} alt="" />
-            <img src={question2} alt="" />
             <img src={question3} alt="" />
+            <img src={question2} alt="" />
           </div>
           <img src={man} alt="" />
           <img src={star2} alt="" />
         </section>
       </main>
+      <div className={Classes["line-main"]}></div>
     </>
   );
 };

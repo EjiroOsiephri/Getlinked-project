@@ -1,6 +1,6 @@
 import Classes from "../sass/Header.module.scss";
 import Logo from "../assets/getlinked.png";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import { FaTimes, FaBars } from "react-icons/fa";
 import { useState } from "react";
 
@@ -33,7 +33,9 @@ const Header = () => {
             <a>Overview</a>
           </li>
           <li>
-            <a>FAQs</a>
+            <Link spy={true} smooth={true} offset={50} duration={500} to="faq">
+              FAQs
+            </Link>
           </li>
           <li>
             <a>Contact</a>

@@ -46,9 +46,27 @@ span {
   border: 0.7px solid rgba(212, 52, 254, 1);
   margin-bottom: 1em;
 }
+.questions-section {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1em;
+}
+img {
+  object-fit: contain;
+}
+.line-main {
+  border: 0.7px solid rgba(255, 255, 255, 0.18);
+  margin-top: 1.2rem;
+}
 @media screen and (max-width: 635px) {
   .main-faqs {
     flex-direction: column;
     padding: 1em;
+  }
+  .questions-section {
+    margin: 1em;
+  }
+  .questions-section > img {
+    max-width: 270px;
   }
 }
