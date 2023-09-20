@@ -1,13 +1,68 @@
 .main-firstSection {
   display: flex;
+  margin-top: 5em;
   justify-content: space-around;
+}
+
+.firstSection-img-background {
+  background-image: url("../assets/Purple-Lens-Flare-PNG.png");
+  background-repeat: no-repeat;
+  border-top-left-radius: 50%;
+  background-position: 100%;
+}
+.star {
+  position: absolute;
+  top: 20%;
+  left: 10%;
 }
 img {
   max-width: 90%;
 }
+.secondSection {
+  background-image: url("../assets/Image\ 1.png");
+}
+.firstSection {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.img-title-section > p {
+  color: rgba(255, 255, 255, 1);
+  margin: 18px 0;
+  line-height: 2;
+}
+.btn {
+  margin: 1.4rem 0;
+  display: flex;
+  margin-left: -10%;
+  justify-content: start;
+}
+.textsection {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+  margin-bottom: 1.5em;
+  margin-top: 1.6rem;
+  margin-right: 1.4rem;
+}
+.firstSection > img {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
 
-@media screen and (max-width: 678px) {
+.textsection > h1 {
+  font-style: italic;
+  color: rgba(255, 255, 255, 1);
+  margin-left: 1.3rem;
+}
+@media screen and (max-width: 835px) {
   .main-firstSection {
     flex-direction: column;
+  }
+  .textsection {
+    align-items: center;
+  }
+  .btn {
+    margin-left: 0;
   }
 }
