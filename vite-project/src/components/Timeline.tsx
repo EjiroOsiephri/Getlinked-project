@@ -1,4 +1,7 @@
 import Classes from "../sass/Timeline.module.scss";
+import star from "../assets/sata gra.png";
+import star2 from "../assets/star (1).png";
+import star3 from "../assets/star.png";
 
 const Timeline = () => {
   return (
@@ -12,6 +15,7 @@ const Timeline = () => {
       </div>
       <main className={Classes["timeline"]}>
         <section className={Classes["firstTimeline"]}>
+          <img src={star} alt="" />
           <div className={Classes["container"]}>
             <aside className={Classes["aside-line"]}>
               <div className={Classes["line-purple"]}></div>
@@ -109,6 +113,7 @@ const Timeline = () => {
                 <h1>November 18, 2023</h1>
               </div>
             </section>
+            <img src={star2} alt="" />
           </div>
 
           <div className={Classes["container"]}>
@@ -131,8 +136,10 @@ const Timeline = () => {
               </aside>
             </section>
           </div>
+          <img src={star3} alt="" />
         </section>
       </main>
+      <div className={Classes["line"]}></div>
     </>
   );
 };

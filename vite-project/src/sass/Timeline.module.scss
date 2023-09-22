@@ -71,8 +71,10 @@ h1 {
   display: flex;
   margin-left: 1.2rem;
 }
-
-@media screen and (max-width: 876px) {
+.line {
+  border: 0.7px solid rgba(255, 255, 255, 0.18);
+}
+@media screen and (max-width: 928px) {
   .container-div {
     position: initial;
   }
@@ -104,7 +106,7 @@ h1 {
   }
 }
 
-@media screen and (min-width: 908px) {
+@media screen and (min-width: 929px) {
   .aside-line {
     position: relative;
     left: 320px;
