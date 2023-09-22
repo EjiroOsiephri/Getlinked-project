@@ -1,11 +1,14 @@
 import Classes from "../sass/Header.module.scss";
 import Logo from "../assets/getlinked.png";
 import { Link } from "react-scroll";
+import { NavLink, useMatch } from "react-router-dom";
 import { FaTimes, FaBars } from "react-icons/fa";
 import { useState } from "react";
 
 const Header = () => {
   const [click, setClick] = useState(false);
+
+  const isContactActive = useMatch("/contact");
 
   function showHamburger() {
     setClick(!click);
@@ -27,7 +30,7 @@ const Header = () => {
           className={Classes["listItem"]}
         >
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
             <a>Overview</a>
@@ -38,7 +41,12 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <a>Contact</a>
+            <NavLink
+              to="/contact"
+              className={isContactActive ? Classes.active : ""}
+            >
+              Contact
+            </NavLink>
           </li>
           <div className={Classes["btn"]}>
             <button>Register</button>
