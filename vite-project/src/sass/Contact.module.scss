@@ -11,7 +11,11 @@
   flex-direction: column;
   gap: 30px;
 }
-
+.custom-toast {
+  color: red;
+  background: red;
+  letter-spacing: 1.3px;
+}
 .last-text {
   margin-bottom: 2rem !important;
 }
@@ -66,6 +70,7 @@ form textarea {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.1);
   color: #f4f4f4;
+  letter-spacing: 1.2px;
   resize: none;
 }
 @media screen and (max-width: 678px) {

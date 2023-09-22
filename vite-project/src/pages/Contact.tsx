@@ -2,11 +2,15 @@ import Header from "../components/Header";
 import Classes from "../sass/Contact.module.scss";
 import starGra from "../assets/sata gra.png";
 import star from "../assets/star.png";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Contact = () => {
   const [postObject, setPostObject] = useState({});
+  const [state, setState] = useState(false);
+  const [email, setEmail] = useState(false);
 
   const nameInputRef = useRef<HTMLInputElement | null>(null);
   const emailInputRef = useRef<HTMLInputElement | null>(null);
@@ -17,8 +21,18 @@ const Contact = () => {
     const enteredName = nameInputRef.current?.value;
     const enteredEmail = emailInputRef.current?.value;
     const enteredMessage = messageInputRef.current?.value;
+    const enteredEmailValid = enteredEmail?.includes("@");
 
-    if (!enteredName && !enteredEmail && !enteredMessage) {
+    if (!enteredName || !enteredEmail || !enteredMessage) {
+      setState(true);
+      toast("Please fill in all fields!!", {
+        className: Classes["custom-toast"],
+      });
+      return;
+    }
+    if (!enteredEmailValid) {
+      setEmail(true);
+      toast("Enter A Valid Email");
       return;
     }
     setPostObject({
@@ -26,12 +40,30 @@ const Contact = () => {
       enteredEmail,
       enteredMessage,
     });
+    if (nameInputRef.current) {
+      nameInputRef.current.value = "";
+    }
+    if (emailInputRef.current) {
+      emailInputRef.current.value = "";
+    }
+    if (messageInputRef.current) {
+      messageInputRef.current.value = "";
+    }
+    toast("Contact Form succesfully submitted");
   }
+
   console.log(postObject);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setState(false);
+    }, 2000);
+  }, [submitHandler]);
 
   return (
     <>
       <Header />
+      <ToastContainer />
       <main className={Classes["contactSection"]}>
         <img src={starGra} alt="" />
         <section className={Classes["textSection"]}>
@@ -64,15 +96,42 @@ const Contact = () => {
           >
             <div className={Classes["name"]}>
               <label htmlFor="name"> Name</label>
-              <input ref={nameInputRef} type="text" />
+              <input
+                style={
+                  state
+                    ? {
+                        border: "2px solid red",
+                      }
+                    : {}
+                }
+                ref={nameInputRef}
+                type="text"
+              />
             </div>
             <div className={Classes["email"]}>
               <label htmlFor="email">Mail</label>
-              <input ref={emailInputRef} type="text" />
+              <input
+                style={
+                  state || email
+                    ? {
+                        border: "2px solid red",
+                      }
+                    : {}
+                }
+                ref={emailInputRef}
+                type="text"
+              />
             </div>
             <div className={Classes["message"]}>
               <label htmlFor="message">Message</label>
               <textarea
+                style={
+                  state
+                    ? {
+                        border: "2px solid red",
+                      }
+                    : {}
+                }
                 ref={messageInputRef}
                 rows={6}
                 placeholder="Type your Message Here"
