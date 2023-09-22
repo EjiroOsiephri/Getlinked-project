@@ -1,0 +1,19 @@
+.main-partners > img {
+  position: absolute;
+}
+.main-partners {
+  margin-top: 1em;
+}
+.main-partners > h1 {
+  text-align: center;
+  color: white;
+}
+.main-partners > p {
+  margin-bottom: 2em;
+}
+.partner-img-section {
+  display: flex;
+  justify-content: center;
+  max-width: 90%;
+  margin-inline: auto;
+}
