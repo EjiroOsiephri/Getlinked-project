@@ -2,6 +2,7 @@ import FirstHero from "../components/FirstHero";
 import Header from "../components/Header";
 import SecondHero from "../components/SecondHero";
 import Faq from "../components/Faqs";
+import Timeline from "../components/Timeline";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <FirstHero />
       <SecondHero />
       <Faq />
+      <Timeline />
     </>
   );
 };

@@ -1,0 +1,121 @@
+.time-text {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+}
+.time-text > h1 {
+  color: white;
+  margin-bottom: 1em;
+}
+p {
+  line-height: 2;
+}
+.timeline {
+  display: flex;
+  justify-content: space-around;
+  padding: 5em;
+}
+h1 {
+  color: rgba(212, 52, 254, 1);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
+.container {
+  margin-bottom: 7rem;
+}
+.aside-class {
+  max-width: 400px;
+}
+.aside-second {
+  min-width: 400px;
+}
+.container > div > h1 {
+  margin-right: 1em;
+}
+.container > div {
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
+}
+.container > aside > p {
+  margin-right: 2em;
+}
+
+.line-purple {
+  display: flex;
+  flex-direction: column;
+  border-left: 5px solid rgba(212, 52, 254, 1);
+  height: 100px;
+}
+
+.line-text {
+  position: relative;
+  left: -20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(212, 52, 254, 1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+}
+.container {
+  display: flex;
+}
+.flexContainer {
+  display: flex;
+  margin-left: 1.2rem;
+}
+
+@media screen and (max-width: 876px) {
+  .container-div {
+    position: initial;
+  }
+  .timeline {
+    padding: 2em;
+  }
+  .aside-second {
+    min-width: 0;
+  }
+  .flexContainer {
+    flex-direction: column;
+    margin-left: 0;
+  }
+  .aside-class > p {
+    text-align: center;
+  }
+  .container > aside > p {
+    margin-right: 0;
+  }
+  .container > div {
+    order: 1;
+    min-width: 0;
+  }
+  .aside-class {
+    max-width: 300px;
+  }
+  h1 {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 908px) {
+  .aside-line {
+    position: relative;
+    left: 320px;
+  }
+  .aside-class {
+    position: relative;
+    left: 80px;
+  }
+  .flexContainer > div:first-child {
+    position: relative;
+    left: -300px;
+    margin-left: 20%;
+  }
+}
