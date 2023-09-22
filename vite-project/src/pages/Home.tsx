@@ -5,6 +5,7 @@ import Faq from "../components/Faqs";
 import Timeline from "../components/Timeline";
 import Prices from "../components/Prices";
 import Partners from "../components/Partners";
+import PrivacyPolicy from "../components/PrivacyPolicy";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Timeline />
       <Prices />
       <Partners />
+      <PrivacyPolicy />
     </>
   );
 };

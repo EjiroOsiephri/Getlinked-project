@@ -1,12 +1,14 @@
 import partners from "../assets/Partner and sponsors section.png";
 import lens from "../assets/Purple-Lens-Flare-PNG.png";
 import Classes from "../sass/Partners.module.scss";
+import starPu from "../assets/star pu.png";
 
 const Partners = () => {
   return (
     <>
       <main className={Classes["main-partners"]}>
         <img src={lens} alt="" />
+        <img src={starPu} alt="" />
         <h1>Partners and Sponsors</h1>
         <p>
           Getlinked Hackathon 1.0 is honored to have the following major

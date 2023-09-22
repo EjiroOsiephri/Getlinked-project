@@ -9,11 +9,17 @@
   color: white;
 }
 .main-partners > p {
-  margin-bottom: 2em;
+  margin-bottom: 3em;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  text-align: center;
 }
 .partner-img-section {
   display: flex;
   justify-content: center;
   max-width: 90%;
   margin-inline: auto;
+}
+.partner-img-section > img {
+  max-width: 90%;
 }

@@ -1,0 +1,91 @@
+.privacy-main {
+  display: flex;
+  margin-top: 4rem;
+  padding: 2rem;
+  justify-content: space-around;
+}
+.privacy-main h1 {
+  color: white;
+}
+.privacy-main > section > p {
+  margin-top: 1.5rem;
+}
+span {
+  color: rgba(212, 52, 254, 1);
+}
+.aside-privacy {
+  max-width: 569px;
+  border: 2px solid #d434fe;
+  padding: 2rem;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 1.6rem;
+  border-radius: 5px;
+}
+.aside-privacy > h4 {
+  margin-top: 2rem;
+  color: #d434fe;
+  margin-bottom: 2rem;
+}
+.aside-privacy > p {
+  line-height: 42px;
+}
+.btn button {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  background: linear-gradient(
+    270deg,
+    #903aff 0%,
+    #d434fe 56.42%,
+    #ff26b9 99.99%,
+    #fe34b9 100%
+  );
+  width: 132px;
+  height: 56px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 3em;
+}
+ul {
+  line-height: 2;
+  color: white;
+}
+li {
+  list-style-type: circle;
+}
+.btn {
+  margin-top: 2rem;
+  margin-left: -10%;
+}
+.imageLock-section > img:first-child {
+  position: absolute;
+  z-index: -4;
+  max-width: 40%;
+  align-self: center;
+}
+.imageLock-section {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 678px) {
+  .imageLock-section > img:last-child {
+    margin-top: 12rem;
+  }
+}
+@media screen and (max-width: 678px) {
+  .privacy-main {
+    flex-direction: column;
+  }
+  .aside-privacy {
+    max-width: 300px;
+    padding: 0.8rem;
+  }
+  .privacy-main > section > p {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+}
