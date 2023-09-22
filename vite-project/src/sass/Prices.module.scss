@@ -1,0 +1,41 @@
+.main-prizes {
+  margin-top: 2.2rem;
+  display: flex;
+  justify-content: space-around;
+}
+img {
+  max-width: 90%;
+}
+.trophy-container {
+  background-image: url("../assets/Purple-Lens-Flare-PNG\ \(1\).png");
+  background-repeat: no-repeat;
+  background-position: 100%;
+}
+.rewards-container {
+  background-image: url("../assets/Purple-Lens-Flare-PNG\ \(1\).png");
+  background-repeat: no-repeat;
+  background-position: 0%;
+}
+.rewards-container > h1 {
+  text-align: center;
+  color: white;
+}
+span {
+  color: rgba(212, 52, 254, 1);
+}
+p {
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+@media screen and (max-width: 678px) {
+  .main-prizes {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .rewards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
