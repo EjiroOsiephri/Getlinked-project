@@ -11,21 +11,20 @@ import Classes from "../sass/Footer.module.scss";
 const FooterSection = () => {
   return (
     <>
-      <main>
+      <main className={Classes["main-footer-section"]}>
         <aside className={Classes["aside-container"]}>
           <section className={Classes["first-footer-section"]}>
             <h1>
               get<span>linked</span>
-              <p>
-                Getlinked Tech Hackathon is a technology innovation program
-                established by a group of organizations with the aim of
-                showcasing young and talented individuals in the field of
-                technology
-              </p>
-              <h4>
-                Terms of Use <span>|</span> Privacy Policy
-              </h4>
             </h1>
+            <p>
+              Getlinked Tech Hackathon is a technology innovation program
+              established by a group of organizations with the aim of showcasing
+              young and talented individuals in the field of technology
+            </p>
+            <h4>
+              Terms of Use <span>|</span> Privacy Policy
+            </h4>
           </section>
           <section className={Classes["second-footer-section"]}>
             <h3>Useful Links</h3>
@@ -33,7 +32,7 @@ const FooterSection = () => {
             <li>Timeline</li>
             <li>FAQs</li>
             <li>Register</li>
-            <li>
+            <li className={Classes["last-list"]}>
               <span>Follow us</span>
               <FaInstagram />
               <FaTwitter />
@@ -42,6 +41,7 @@ const FooterSection = () => {
             </li>
           </section>
           <section className={Classes["contact-footer-section"]}>
+            <h1>Contact us</h1>
             <p>
               <FaPhone />
               +234 6707653444

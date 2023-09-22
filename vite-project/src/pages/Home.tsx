@@ -6,6 +6,7 @@ import Timeline from "../components/Timeline";
 import Prices from "../components/Prices";
 import Partners from "../components/Partners";
 import PrivacyPolicy from "../components/PrivacyPolicy";
+import FooterSection from "../components/FooterSection";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <Prices />
       <Partners />
       <PrivacyPolicy />
+      <FooterSection />
     </>
   );
 };

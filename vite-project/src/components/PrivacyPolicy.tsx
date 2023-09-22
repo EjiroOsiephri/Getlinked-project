@@ -69,7 +69,6 @@ const PrivacyPolicy = () => {
           <img src={imageLock} alt="imagelock" />
         </section>
       </main>
-      <div className="line"></div>
     </>
   );
 };
