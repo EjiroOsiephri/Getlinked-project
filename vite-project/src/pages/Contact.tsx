@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Contact = () => {
-  const [postObject, setPostObject] = useState({});
   const [state, setState] = useState(false);
   const [email, setEmail] = useState(false);
 
@@ -35,11 +34,28 @@ const Contact = () => {
       toast("Enter A Valid Email");
       return;
     }
-    setPostObject({
-      enteredName,
-      enteredEmail,
-      enteredMessage,
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      email: enteredEmail,
+      first_name: enteredName,
+      message: enteredMessage,
     });
+
+    var requestOptions: any = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("https://backend.getlinked.ai/hackathon/contact-form", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+
     if (nameInputRef.current) {
       nameInputRef.current.value = "";
     }
@@ -49,10 +65,9 @@ const Contact = () => {
     if (messageInputRef.current) {
       messageInputRef.current.value = "";
     }
-    toast("Contact Form succesfully submitted");
-  }
 
-  console.log(postObject);
+    toast("Succesfully created contact");
+  }
 
   useEffect(() => {
     setTimeout(() => {
