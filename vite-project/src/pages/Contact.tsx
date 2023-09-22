@@ -8,8 +8,8 @@ const Contact = () => {
     <>
       <Header />
       <main className={Classes["contactSection"]}>
+        <img src={starGra} alt="" />
         <section className={Classes["textSection"]}>
-          <img src={starGra} alt="" />
           <h1>Get in touch</h1>
           <p>Contact Information</p>
           <p>27,Alara Street Yaba 100012 Lagos State</p>
