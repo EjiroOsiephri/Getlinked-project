@@ -10,6 +10,8 @@ const Header = () => {
 
   const isContactActive = useMatch("/contact");
 
+  const isRegister = useMatch("/register");
+
   function showHamburger() {
     setClick(!click);
   }
@@ -49,7 +51,14 @@ const Header = () => {
             </NavLink>
           </li>
           <div className={Classes["btn"]}>
-            <button>Register</button>
+            <button>
+              <NavLink
+                to="/register"
+                className={isRegister ? Classes.register : ""}
+              >
+                Register
+              </NavLink>
+            </button>
           </div>
         </ul>
         <div className={Classes["hamburger-section"]} onClick={showHamburger}>

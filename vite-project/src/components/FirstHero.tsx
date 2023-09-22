@@ -4,6 +4,7 @@ import title from "../assets/Title.png";
 import Line from "../assets/Vector 4.png";
 import Countdown from "../assets/Countdown time (1).png";
 import man from "../assets/man-wearing-smart-glasses-touching-virtual-screen 1.png";
+import { NavLink } from "react-router-dom";
 
 const FirstHero = () => {
   return (
@@ -21,7 +22,9 @@ const FirstHero = () => {
             </p>
           </div>
           <div className={Classes["btn"]}>
-            <button>Register</button>
+            <button>
+              <NavLink to="/register">Register</NavLink>
+            </button>
           </div>
           <img src={Countdown} alt="" />
         </section>
