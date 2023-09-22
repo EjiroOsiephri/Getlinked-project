@@ -64,11 +64,16 @@ const Register = () => {
             <div className={Classes["message"]}>
               <label htmlFor="message">Group size</label>
               <select id="dropdown" name="fruit">
-                <option value="apple"></option>
-                <option value="banana">Banana</option>
-                <option value="cherry">Cherry</option>
-                <option value="grape">Grape</option>
-                <option value="orange">Orange</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
               </select>
             </div>
             <button className={Classes["btn"]}>Submit</button>
