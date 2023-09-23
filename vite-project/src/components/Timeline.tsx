@@ -6,7 +6,7 @@ import star3 from "../assets/star.png";
 const Timeline = () => {
   return (
     <>
-      <div id="timeline" className={Classes["time-text"]}>
+      <div id="/" className={Classes["time-text"]}>
         <h1>Timeline</h1>
         <p>
           Here is the breakdown of the time we anticipate using for the upcoming

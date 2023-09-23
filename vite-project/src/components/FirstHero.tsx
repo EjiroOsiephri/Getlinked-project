@@ -2,7 +2,6 @@ import Classes from "../sass/FirstHero.module.scss";
 import star from "../assets/star.png";
 import title from "../assets/Title.png";
 import Line from "../assets/Vector 4.png";
-import Countdown from "../assets/Countdown time (1).png";
 import man from "../assets/man-wearing-smart-glasses-touching-virtual-screen 1.png";
 import { NavLink } from "react-router-dom";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
@@ -92,7 +91,20 @@ const FirstHero = () => {
               <NavLink to="/Register">Register</NavLink>
             </button>
           </div>
-          <img src={Countdown} alt="" />
+          <div>
+            <h1
+              style={{
+                color: "white",
+                marginTop: "1rem",
+              }}
+            >{`${String(timeLeft.hours).padStart(2, "0")} h  ${String(
+              timeLeft.minutes
+            ).padStart(2, "0")} m  ${String(timeLeft.seconds).padStart(
+              2,
+              "0"
+            )} s`}</h1>
+            <p>To the announcement of results day</p>
+          </div>
         </section>
         <section className={Classes["secondSection"]}>
           <div className={Classes["textsection"]}>

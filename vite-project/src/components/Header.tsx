@@ -35,15 +35,7 @@ const Header = () => {
         >
           <li>
             <NavLink to="/" className={isHomeActive ? Classes.active : ""}>
-              <Link
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}
-                to="timeline"
-              >
-                Timeline
-              </Link>
+              Timeline
             </NavLink>
           </li>
           <li>
