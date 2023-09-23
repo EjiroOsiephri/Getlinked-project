@@ -52,6 +52,7 @@ const Register = () => {
     const enteredPhone = phoneInputRef.current?.value;
     const enteredEmail = emailInputRef.current?.value;
     const enteredTopic = topicInputRef.current?.value;
+
     const enteredEmailValid = enteredEmail?.includes("@");
 
     if (
@@ -64,6 +65,14 @@ const Register = () => {
       selectedCategory.length < 1
     ) {
       toast("Fill in all the fields");
+      return;
+    }
+    if (enteredPhone?.length > 13) {
+      toast("Phone number too long");
+      return;
+    }
+    if (!privacy) {
+      toast("Agree to all term by checking the box");
       return;
     }
 
@@ -92,6 +101,19 @@ const Register = () => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
     setShowModal(true);
+
+    if (nameInputRef.current) {
+      nameInputRef.current.value = "";
+    }
+    if (phoneInputRef.current) {
+      phoneInputRef.current.value = "";
+    }
+    if (emailInputRef.current) {
+      emailInputRef.current.value = "";
+    }
+    if (topicInputRef.current) {
+      topicInputRef.current.value = "";
+    }
   }
 
   return (

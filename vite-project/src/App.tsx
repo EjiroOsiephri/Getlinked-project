@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import React from "react";
 import Faqs from "./components/Faqs";
-import Contact from "./pages/Contact";
-import Register from "./pages/Register";
+
+const Register = React.lazy(() => import("./pages/Register"));
+const Contact = React.lazy(() => import("./pages/Contact"));
+const Home = React.lazy(() => import("./pages/Home"));
 
 function App() {
   return (
