@@ -60,6 +60,9 @@
   border: 0.7px solid rgba(255, 255, 255, 0.18);
   margin-top: 2.2em;
 }
+ul li {
+  list-style-type: none;
+}
 
 @media screen and (max-width: 1040px) {
   .headers {

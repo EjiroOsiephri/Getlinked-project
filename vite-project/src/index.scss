@@ -8,6 +8,13 @@ body {
   font-family: "Montserrat", sans-serif;
   background: rgba(21, 14, 40, 1);
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 li {
   list-style-type: none;
   cursor: pointer;

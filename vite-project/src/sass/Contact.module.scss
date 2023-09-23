@@ -15,6 +15,9 @@
   flex-direction: column;
   gap: 30px;
 }
+.textSection > h1 {
+  color: rgba(212, 52, 254, 1);
+}
 .custom-toast {
   color: red;
   background: red;
@@ -97,7 +100,14 @@ form textarea {
     align-items: center;
     justify-content: center;
   }
+
   .formSection {
     width: initial;
+  }
+  form textarea {
+    width: 100%;
+  }
+  .textSection > h1 {
+    text-align: center;
   }
 }
