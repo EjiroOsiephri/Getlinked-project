@@ -5,7 +5,7 @@ import threeD from "../assets/3d-graphic-designer-showing-thumbs-up-png 1.png";
 import star from "../assets/star.png";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Register = () => {
   const [data, setData] = useState([]);
@@ -16,13 +16,77 @@ const Register = () => {
           "https://backend.getlinked.ai/hackathon/categories-list"
         );
 
-        setData(res.data);
+        const modifiedData: any = [
+          { id: "some-unique-id", name: "Enter a category" },
+          ...res.data,
+        ];
+
+        setData(modifiedData);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     }
     getCategoryList();
   }, []);
+
+  const nameInputRef = useRef<HTMLInputElement | null>(null);
+  const emailInputRef = useRef<HTMLInputElement | null>(null);
+  const phoneInputRef = useRef<HTMLInputElement | null>(null);
+  const topicInputRef = useRef<HTMLInputElement | null>(null);
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<number | any>("");
+
+  function handleSizeChange(value: string) {
+    setSelectedSize(value);
+  }
+
+  function submitHandler(e: any) {
+    e.preventDefault();
+
+    const enteredName = nameInputRef.current?.value;
+    const enteredPhone = phoneInputRef.current?.value;
+    const enteredEmail = emailInputRef.current?.value;
+    const enteredTopic = topicInputRef.current?.value;
+    const enteredEmailValid = enteredEmail?.includes("@");
+
+    // if (
+    //   !enteredEmail ||
+    //   !enteredPhone ||
+    //   !enteredEmail ||
+    //   !enteredTopic ||
+    //   !enteredEmailValid ||
+    //   selectedSize.length < 1 ||
+    //   selectedCategory.length < 1
+    // ) {
+    //   return;
+    // }
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      email: enteredEmail,
+      phone_number: enteredPhone,
+      team_name: enteredName,
+      group_size: selectedSize,
+      project_topic: enteredTopic,
+      category: selectedCategory,
+      privacy_poclicy_accepted: true,
+    });
+    console.log(selectedCategory);
+
+    var requestOptions: object = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("https://backend.getlinked.ai/hackathon/registration", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  }
 
   return (
     <>
@@ -36,34 +100,71 @@ const Register = () => {
         <section className={Classes["formSection"]}>
           <h1>Register</h1>
           <p>Be part of this movement!...........🚶🚶</p>
-          <form className={Classes["contactComponentPage"]}>
+          <form
+            onSubmit={submitHandler}
+            className={Classes["contactComponentPage"]}
+          >
             <div className={Classes["name"]}>
               <label htmlFor="name">Team's Name</label>
-              <input placeholder="Enter the name of your group" type="text" />
+              <input
+                placeholder="Enter the name of your group"
+                ref={nameInputRef}
+                type="text"
+              />
             </div>
             <div className={Classes["email"]}>
               <label htmlFor="email">Phone</label>
-              <input placeholder="Enter your phone number" type="text" />
+              <input
+                placeholder="Enter your phone number"
+                ref={phoneInputRef}
+                type="number"
+              />
             </div>
             <div className={Classes["message"]}>
               <label htmlFor="message">Email</label>
-              <input placeholder="Enter your email address" />
+              <input
+                placeholder="Enter your email address"
+                ref={emailInputRef}
+                type="email"
+              />
             </div>
             <div className={Classes["message"]}>
               <label htmlFor="message">Project topic</label>
-              <input placeholder="What is your group project topic" />
+              <input
+                ref={topicInputRef}
+                placeholder="What is your group project topic"
+              />
             </div>
             <div className={Classes["message"]}>
               <label htmlFor="message">Category</label>
-              <select id="dropdown" name="fruit">
+              <select
+                onChange={(e: any) => {
+                  setSelectedCategory(parseInt(e.target.value, 10));
+                }}
+                id="dropdown"
+                name="fruit"
+                value={selectedCategory.toString()}
+              >
+                <option value="">Select a category</option>
                 {data?.map((item: any) => {
-                  return <option>{item.name}</option>;
+                  return (
+                    <option key={item.id} value={item?.id?.toString()}>
+                      {item.name}
+                    </option>
+                  );
                 })}
               </select>
             </div>
             <div className={Classes["message"]}>
               <label htmlFor="message">Group size</label>
-              <select id="dropdown" name="fruit">
+              <select
+                onChange={(e: any) => {
+                  handleSizeChange(e.target.value);
+                }}
+                id="dropdown"
+                name="fruit"
+              >
+                <option>Enter a group size</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
