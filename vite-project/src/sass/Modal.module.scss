@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.modal {
+  width: 70%;
+  margin: 0 auto;
+  background-color: white;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(21, 14, 40, 1);
+  opacity: 0.8;
+}
+
+.modal {
+  position: fixed;
+  border-radius: 10px;
+  top: 10vh;
+  left: 10%;
+  border: 1px solid rgba(212, 52, 254, 1);
+  background-color: transparent;
+  width: 80%;
+  padding: 1em;
+  z-index: 100;
+  overflow: hidden;
+}
+.button {
+  margin-top: 0.8em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.content h1 {
+  padding: 1rem;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 1.3px;
+  text-align: center;
+  text-align: center;
+}
+.content p {
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: 1.3px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.button button:first-child {
+  background: none;
+  font-weight: 800;
+  color: rgba(52, 51, 58, 1);
+  border: none;
+  letter-spacing: 1.2px;
+  padding: 1em;
+}
+.button button:first-child:hover {
+  border: 2px solid rgba(52, 51, 58, 1);
+  border-radius: 1em;
+}
+.button button:last-child {
+  background: linear-gradient(
+    270deg,
+    #903aff 0%,
+    #d434fe 56.42%,
+    #ff26b9 99.99%,
+    #fe34b9 100%
+  );
+
+  color: white;
+  border: none;
+  letter-spacing: 1.2px;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+}

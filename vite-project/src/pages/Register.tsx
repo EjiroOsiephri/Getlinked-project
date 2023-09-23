@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import Module from "../components/Modal";
 
 const Register = () => {
   const [data, setData] = useState([]);
@@ -96,6 +97,7 @@ const Register = () => {
   return (
     <>
       <ToastContainer />
+      {showModal && <Module setShowModal={setShowModal} />}
       <Header />
       <main className={Classes["contactSection"]}>
         <img src={starGra} alt="" />
