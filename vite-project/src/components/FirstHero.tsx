@@ -23,7 +23,7 @@ const FirstHero = () => {
           </div>
           <div className={Classes["btn"]}>
             <button>
-              <NavLink to="/register">Register</NavLink>
+              <NavLink to="/Register">Register</NavLink>
             </button>
           </div>
           <img src={Countdown} alt="" />

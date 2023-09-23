@@ -6,9 +6,12 @@ import star from "../assets/star.png";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 const Register = () => {
   const [data, setData] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     async function getCategoryList() {
       try {
@@ -16,10 +19,7 @@ const Register = () => {
           "https://backend.getlinked.ai/hackathon/categories-list"
         );
 
-        const modifiedData: any = [
-          { id: "some-unique-id", name: "Enter a category" },
-          ...res.data,
-        ];
+        const modifiedData: any = [...res.data];
 
         setData(modifiedData);
       } catch (error) {
@@ -34,12 +34,16 @@ const Register = () => {
   const phoneInputRef = useRef<HTMLInputElement | null>(null);
   const topicInputRef = useRef<HTMLInputElement | null>(null);
   const [selectedSize, setSelectedSize] = useState("");
+  const [privacy, setPrivacy] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<number | any>("");
 
   function handleSizeChange(value: string) {
     setSelectedSize(value);
   }
 
+  const privacyCheck = () => {
+    setPrivacy(!privacy);
+  };
   function submitHandler(e: any) {
     e.preventDefault();
 
@@ -49,17 +53,18 @@ const Register = () => {
     const enteredTopic = topicInputRef.current?.value;
     const enteredEmailValid = enteredEmail?.includes("@");
 
-    // if (
-    //   !enteredEmail ||
-    //   !enteredPhone ||
-    //   !enteredEmail ||
-    //   !enteredTopic ||
-    //   !enteredEmailValid ||
-    //   selectedSize.length < 1 ||
-    //   selectedCategory.length < 1
-    // ) {
-    //   return;
-    // }
+    if (
+      !enteredEmail ||
+      !enteredPhone ||
+      !enteredEmail ||
+      !enteredTopic ||
+      !enteredEmailValid ||
+      selectedSize.length < 1 ||
+      selectedCategory.length < 1
+    ) {
+      toast("Fill in all the fields");
+      return;
+    }
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -71,9 +76,8 @@ const Register = () => {
       group_size: selectedSize,
       project_topic: enteredTopic,
       category: selectedCategory,
-      privacy_poclicy_accepted: true,
+      privacy_poclicy_accepted: privacy,
     });
-    console.log(selectedCategory);
 
     var requestOptions: object = {
       method: "POST",
@@ -86,10 +90,12 @@ const Register = () => {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
+    setShowModal(true);
   }
 
   return (
     <>
+      <ToastContainer />
       <Header />
       <main className={Classes["contactSection"]}>
         <img src={starGra} alt="" />
@@ -100,82 +106,93 @@ const Register = () => {
         <section className={Classes["formSection"]}>
           <h1>Register</h1>
           <p>Be part of this movement!...........🚶🚶</p>
-          <form
-            onSubmit={submitHandler}
-            className={Classes["contactComponentPage"]}
-          >
-            <div className={Classes["name"]}>
-              <label htmlFor="name">Team's Name</label>
-              <input
-                placeholder="Enter the name of your group"
-                ref={nameInputRef}
-                type="text"
-              />
-            </div>
-            <div className={Classes["email"]}>
-              <label htmlFor="email">Phone</label>
-              <input
-                placeholder="Enter your phone number"
-                ref={phoneInputRef}
-                type="number"
-              />
-            </div>
-            <div className={Classes["message"]}>
-              <label htmlFor="message">Email</label>
-              <input
-                placeholder="Enter your email address"
-                ref={emailInputRef}
-                type="email"
-              />
-            </div>
-            <div className={Classes["message"]}>
-              <label htmlFor="message">Project topic</label>
-              <input
-                ref={topicInputRef}
-                placeholder="What is your group project topic"
-              />
-            </div>
-            <div className={Classes["message"]}>
-              <label htmlFor="message">Category</label>
-              <select
-                onChange={(e: any) => {
-                  setSelectedCategory(parseInt(e.target.value, 10));
-                }}
-                id="dropdown"
-                name="fruit"
-                value={selectedCategory.toString()}
-              >
-                <option value="">Select a category</option>
-                {data?.map((item: any) => {
-                  return (
-                    <option key={item.id} value={item?.id?.toString()}>
-                      {item.name}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-            <div className={Classes["message"]}>
-              <label htmlFor="message">Group size</label>
-              <select
-                onChange={(e: any) => {
-                  handleSizeChange(e.target.value);
-                }}
-                id="dropdown"
-                name="fruit"
-              >
-                <option>Enter a group size</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-              </select>
+          <form onSubmit={submitHandler}>
+            <aside className={Classes["contactComponentPage"]}>
+              <div className={Classes["name"]}>
+                <label htmlFor="name">Team's Name</label>
+                <input
+                  placeholder="Enter the name of your group"
+                  ref={nameInputRef}
+                  type="text"
+                />
+              </div>
+              <div className={Classes["email"]}>
+                <label htmlFor="email">Phone</label>
+                <input
+                  placeholder="Enter your phone number"
+                  ref={phoneInputRef}
+                  type="number"
+                />
+              </div>
+              <div className={Classes["message"]}>
+                <label htmlFor="message">Email</label>
+                <input
+                  placeholder="Enter your email address"
+                  ref={emailInputRef}
+                  type="email"
+                />
+              </div>
+              <div className={Classes["message"]}>
+                <label htmlFor="message">Project topic</label>
+                <input
+                  ref={topicInputRef}
+                  placeholder="What is your group project topic"
+                />
+              </div>
+              <div className={Classes["message"]}>
+                <label htmlFor="message">Category</label>
+                <select
+                  onChange={(e: any) => {
+                    setSelectedCategory(parseInt(e.target.value, 10));
+                  }}
+                  id="dropdown"
+                  name="fruit"
+                  value={selectedCategory.toString()}
+                >
+                  <option value="">Select a category</option>
+                  {data?.map((item: any) => {
+                    return (
+                      <option key={item.id} value={item?.id?.toString()}>
+                        {item.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <div className={Classes["message"]}>
+                <label htmlFor="message">Group size</label>
+                <select
+                  onChange={(e: any) => {
+                    handleSizeChange(e.target.value);
+                  }}
+                  id="dropdown"
+                  name="fruit"
+                >
+                  <option>Enter a group size</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                </select>
+              </div>
+            </aside>
+            <p
+              style={{
+                fontStyle: "italic",
+                color: "rgba(255, 38, 185, 1)",
+              }}
+            >
+              Please review your registration details before submitting
+            </p>
+            <div className={Classes["checkBox"]}>
+              <input onClick={privacyCheck} type="checkbox" />I agreed with the
+              event terms and conditions and privacy policy
             </div>
             <button className={Classes["btn"]}>Submit</button>
           </form>

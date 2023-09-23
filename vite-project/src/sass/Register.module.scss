@@ -88,13 +88,17 @@ form select {
   margin-bottom: 1.2em;
   font-size: 0.8rem;
   width: 80%;
+  height: 47px;
   border-radius: 8px;
-  padding: 10px 18px;
+  padding: 5px 18px;
   background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.1);
   color: #f4f4f4;
   letter-spacing: 1.2px;
   resize: none;
+}
+form select {
+  width: 100%;
 }
 label {
   font-weight: 700;
@@ -102,15 +106,37 @@ label {
 .contactComponentPage {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: auto auto;
   gap: 20px;
 }
-.contactComponentPage > .btn {
+.contactComponentPage > p:last-child,
+.contactComponentPage > button {
+  grid-column: 2 / 3; /* Span the second column */
+  grid-row: span 2; /* Span both rows */
+}
+form > .btn {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  margin-top: 1rem;
+}
+.checkBox {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.checkBox > input {
+  height: initial;
+  margin-right: 0.8em;
+  padding: initial;
+  align-self: center;
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  width: initial;
+  border-radius: 8px;
+  padding: initial;
 }
 @media screen and (max-width: 678px) {
   .contactComponentPage {

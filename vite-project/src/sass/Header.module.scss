@@ -6,9 +6,7 @@
 .headers img {
   display: flex;
 }
-.register {
-  background: transparent;
-}
+
 .listItem {
   display: flex;
   align-items: center;
@@ -62,6 +60,7 @@
   border: 0.7px solid rgba(255, 255, 255, 0.18);
   margin-top: 2.2em;
 }
+
 @media screen and (max-width: 1040px) {
   .headers {
     justify-content: space-between;
