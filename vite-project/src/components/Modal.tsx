@@ -3,6 +3,7 @@ import img from "../assets/successful-man-3025713-2526911 1.png";
 import img2 from "../assets/successfully-done-5108472-4288033 1.png";
 import ReactDOM from "react-dom";
 import Styled from "../sass/Modal.module.scss";
+import { motion } from "framer-motion";
 
 const BackDrop = () => {
   return <div className={Styled.backdrop}></div>;
@@ -14,7 +15,12 @@ const Modal: React.FC<{
     setShowModal(false);
   }
   return (
-    <div className={Styled.modal}>
+    <motion.div
+      animate={{ y: 20, scale: 1 }}
+      transition={{ type: "spring", duration: 0.4 }}
+      initial={{ scale: 0 }}
+      className={Styled.modal}
+    >
       <div className={Styled["flexImage"]}>
         <img src={img2} alt="img2" />
         <img src={img} alt="img" />
@@ -28,7 +34,7 @@ const Modal: React.FC<{
       <div className={Styled.button}>
         <button onClick={setModal}>Back</button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 const Module: React.FC<{

@@ -1,0 +1,69 @@
+.second-hero-main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.bigideaTextSection {
+  max-width: 560px;
+}
+
+.bigideaTextSection > p {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 1.2px;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.starGra {
+  position: absolute;
+  top: 130%;
+}
+
+.line {
+  border: 0.7px solid rgba(255, 255, 255, 0.18);
+}
+
+.bigideaTextSection > h1 {
+  color: white;
+}
+
+span {
+  color: rgb(212, 52, 254);
+}
+
+.btn {
+  margin-top: 2rem;
+  margin-left: -8%;
+  margin-bottom: 1em;
+}
+
+@media screen and (max-width: 835px) {
+  .second-hero-main {
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+  .bigideaTextSection > img:first-child {
+    display: none;
+  }
+  .bigideaTextSection > p,
+  h1 {
+    text-align: center;
+  }
+  .arrow {
+    transform: translate(50%, -50%);
+    margin-top: 3rem;
+  }
+  .btn {
+    margin-left: -10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}/*# sourceMappingURL=SecondHero.module.css.map */

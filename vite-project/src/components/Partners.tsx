@@ -10,7 +10,11 @@ const Partners = () => {
         <img src={lens} alt="" />
         <img src={starPu} alt="" />
         <h1>Partners and Sponsors</h1>
-        <p>
+        <p
+          style={{
+            maxWidth: "600px",
+          }}
+        >
           Getlinked Hackathon 1.0 is honored to have the following major
           companies as its partners and sponsors
         </p>

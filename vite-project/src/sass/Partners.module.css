@@ -1,0 +1,30 @@
+.main-partners > img {
+  position: absolute;
+}
+
+.main-partners {
+  margin-top: 1em;
+}
+
+.main-partners > h1 {
+  text-align: center;
+  color: white;
+}
+
+.main-partners > p {
+  margin-bottom: 3em;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.partner-img-section {
+  display: flex;
+  justify-content: center;
+  max-width: 90%;
+  margin-inline: auto;
+}
+
+.partner-img-section > img {
+  max-width: 90%;
+}/*# sourceMappingURL=Partners.module.css.map */

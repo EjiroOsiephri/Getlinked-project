@@ -4,11 +4,12 @@ import star from "../assets/star pu.png";
 import star2 from "../assets/star.png";
 import lens from "../assets/Purple-Lens-Flare-PNG (1).png";
 import bgImg from "../assets/56v.png";
+import { motion } from "framer-motion";
 
 const PrivacyPolicy = () => {
   return (
     <>
-      <main className={Classes["privacy-main"]}>
+      <motion.main className={Classes["privacy-main"]}>
         <section>
           <img src={star} alt="" />
           <h1>
@@ -68,7 +69,7 @@ const PrivacyPolicy = () => {
           <img src={bgImg} alt="" />
           <img src={imageLock} alt="imagelock" />
         </section>
-      </main>
+      </motion.main>
     </>
   );
 };

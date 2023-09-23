@@ -119,7 +119,9 @@ const Register = () => {
   return (
     <>
       <ToastContainer />
+
       {showModal && <Module setShowModal={setShowModal} />}
+
       <Header />
       <main className={Classes["contactSection"]}>
         <img src={starGra} alt="" />

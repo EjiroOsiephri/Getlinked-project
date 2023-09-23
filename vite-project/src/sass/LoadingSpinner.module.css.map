@@ -1,0 +1,1 @@
+{"version":3,"sources":["LoadingSpinner.module.scss","LoadingSpinner.module.css"],"names":[],"mappings":"AAAA;EACE,qBAAA;EACA,WAAA;EACA,YAAA;ACCF;;ADCA;EACE,YAAA;EACA,cAAA;EACA,WAAA;EACA,YAAA;EACA,WAAA;EACA,kBAAA;EACA,mCAAA;EACA,yEAAA;EAEA,uCAAA;ACCF;;ADEA;EACE;IACE,uBAAA;ECCF;EDCA;IACE,yBAAA;ECCF;AACF","file":"LoadingSpinner.module.css"}

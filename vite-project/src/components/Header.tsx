@@ -12,6 +12,8 @@ const Header = () => {
 
   const isRegister = useMatch("/Register");
 
+  const isHomeActive = useMatch("/");
+
   function showHamburger() {
     setClick(!click);
   }
@@ -32,7 +34,9 @@ const Header = () => {
           className={Classes["listItem"]}
         >
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" className={isHomeActive ? Classes.active : ""}>
+              Home
+            </NavLink>
           </li>
           <li>
             <a>Overview</a>
