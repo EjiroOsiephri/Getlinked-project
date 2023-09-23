@@ -11,9 +11,11 @@
   object-fit: cover;
 }
 .textSection {
+  background-image: url("../assets/Purple-Lens-Flare-PNG.png");
   display: flex;
   flex-direction: column;
   gap: 30px;
+  background-repeat: no-repeat;
 }
 .custom-toast {
   color: red;
@@ -138,6 +140,7 @@ form > .btn {
   border-radius: 8px;
   padding: initial;
 }
+
 @media screen and (max-width: 678px) {
   .contactComponentPage {
     display: flex;

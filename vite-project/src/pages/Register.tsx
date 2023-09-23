@@ -129,6 +129,7 @@ const Register = () => {
           <img src={star} alt="" />
           <img src={threeD} alt="" />
         </section>
+
         <section className={Classes["formSection"]}>
           <h1>Register</h1>
           <p>Be part of this movement!...........🚶🚶</p>
