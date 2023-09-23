@@ -5,11 +5,107 @@ import arrow from "../assets/arrow.png";
 import lady from "../assets/7450159 1 (1).png";
 import star from "../assets/star.png";
 import couple from "../assets/8046554 1 (1).png";
+import { useState, useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 const SecondHero = () => {
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timerInterval = setInterval(() => {
+      const newTimeLeft = calculateTimeLeft();
+      setTimeLeft(newTimeLeft);
+
+      if (newTimeLeft.total <= 0) {
+        clearInterval(timerInterval);
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(timerInterval);
+    };
+  }, []);
+
+  function calculateTimeLeft() {
+    const now: any = new Date();
+    const targetTime: any = getNextTuesday();
+    const timeDifference: any = targetTime - now;
+
+    if (timeDifference <= 0) {
+      const nextTuesday: any = new Date(now);
+      nextTuesday.setDate(now.getDate() + ((9 - now.getDay() + 7) % 7));
+      nextTuesday.setHours(23, 59, 0, 0);
+      return {
+        total: nextTuesday - now,
+        hours: 23 - now.getHours(),
+        minutes: 59 - now.getMinutes(),
+        seconds: 59 - now.getSeconds(),
+      };
+    }
+
+    const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+    const minutes = Math.floor(
+      (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    return {
+      total: timeDifference,
+      hours,
+      minutes,
+      seconds,
+    };
+  }
+
+  function getNextTuesday() {
+    const now = new Date();
+    const daysUntilNextTuesday = (9 - now.getDay() + 7) % 7;
+    const nextTuesday = new Date(now);
+    nextTuesday.setDate(now.getDate() + daysUntilNextTuesday);
+    nextTuesday.setHours(23, 59, 0, 0);
+    return nextTuesday;
+  }
+
+  const targetRef = useRef(null);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          controls.start({
+            x: 0,
+            opacity: 1,
+          });
+        } else {
+          controls.start({
+            x: -100,
+            opacity: 0,
+          });
+        }
+      });
+    });
+
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
+
+    return () => {
+      if (targetRef.current) {
+        observer.unobserve(targetRef.current);
+      }
+    };
+  }, [controls]);
+
   return (
     <>
-      <main className={Classes["second-hero-main"]}>
+      <motion.main
+        initial={{ x: -100, opacity: 0 }}
+        animate={controls}
+        transition={{ duration: 0.3 }}
+        ref={targetRef}
+        className={Classes["second-hero-main"]}
+      >
         <section className={Classes["bigIdea"]}>
           <img src={starGra} className={Classes["starGra"]} alt="" />
           <img src={big} alt="" />
@@ -28,7 +124,7 @@ const SecondHero = () => {
             solutions that can change the world, that's what we're all about!
           </p>
         </section>
-      </main>
+      </motion.main>
       <div className={Classes["line"]}></div>
       <main className={Classes["second-hero-main"]}>
         <section className={Classes["bigideaTextSection"]}>

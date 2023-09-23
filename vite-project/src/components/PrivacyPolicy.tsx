@@ -4,13 +4,49 @@ import star from "../assets/star pu.png";
 import star2 from "../assets/star.png";
 import lens from "../assets/Purple-Lens-Flare-PNG (1).png";
 import bgImg from "../assets/56v.png";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useRef, useEffect } from "react";
 
 const PrivacyPolicy = () => {
+  const targetRef = useRef(null);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          controls.start({
+            x: 0,
+            opacity: 1,
+          });
+        } else {
+          controls.start({
+            x: -100,
+            opacity: 0,
+          });
+        }
+      });
+    });
+
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
+
+    return () => {
+      if (targetRef.current) {
+        observer.unobserve(targetRef.current);
+      }
+    };
+  }, [controls]);
   return (
     <>
       <motion.main className={Classes["privacy-main"]}>
-        <section>
+        <motion.section
+          initial={{ x: -100, opacity: 0 }}
+          animate={controls}
+          transition={{ duration: 0.3 }}
+          ref={targetRef}
+        >
           <img src={star} alt="" />
           <h1>
             Privacy Policy and <span>Terms</span>
@@ -63,12 +99,18 @@ const PrivacyPolicy = () => {
             </div>
           </aside>
           <img src={star2} alt="" />
-        </section>
+        </motion.section>
 
-        <section className={Classes["imageLock-section"]}>
+        <motion.section
+          initial={{ x: -100, opacity: 0 }}
+          animate={controls}
+          transition={{ duration: 0.3 }}
+          ref={targetRef}
+          className={Classes["imageLock-section"]}
+        >
           <img src={bgImg} alt="" />
           <img src={imageLock} alt="imagelock" />
-        </section>
+        </motion.section>
       </motion.main>
     </>
   );

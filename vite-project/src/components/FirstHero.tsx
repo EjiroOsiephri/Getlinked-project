@@ -5,7 +5,8 @@ import Line from "../assets/Vector 4.png";
 import man from "../assets/man-wearing-smart-glasses-touching-virtual-screen 1.png";
 import { NavLink } from "react-router-dom";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 const FirstHero = () => {
   const [text] = useTypewriter({
@@ -72,10 +73,47 @@ const FirstHero = () => {
     return nextTuesday;
   }
 
+  const targetRef = useRef(null);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          controls.start({
+            x: 0,
+            opacity: 1,
+          });
+        } else {
+          controls.start({
+            x: -100,
+            opacity: 0,
+          });
+        }
+      });
+    });
+
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
+
+    return () => {
+      if (targetRef.current) {
+        observer.unobserve(targetRef.current);
+      }
+    };
+  }, [controls]);
+
   return (
     <>
       <main className={Classes["main-firstSection"]}>
-        <section className={Classes["firstSection"]}>
+        <motion.section
+          initial={{ x: -100, opacity: 0 }}
+          animate={controls}
+          transition={{ duration: 0.3 }}
+          ref={targetRef}
+          className={Classes["firstSection"]}
+        >
           <div className={Classes["firstSection-img-background"]}>
             <img className={Classes["star"]} src={star} alt="star" />
             <img src={title} alt="title" />
@@ -96,6 +134,7 @@ const FirstHero = () => {
               style={{
                 color: "white",
                 marginTop: "1rem",
+                textAlign: "left",
               }}
             >{`${String(timeLeft.hours).padStart(2, "0")} h  ${String(
               timeLeft.minutes
@@ -105,14 +144,20 @@ const FirstHero = () => {
             )} s`}</h1>
             <p>To the announcement of results day</p>
           </div>
-        </section>
-        <section className={Classes["secondSection"]}>
+        </motion.section>
+        <motion.section
+          initial={{ right: -100, opacity: 0 }}
+          animate={controls}
+          transition={{ duration: 0.4 }}
+          ref={targetRef}
+          className={Classes["secondSection"]}
+        >
           <div className={Classes["textsection"]}>
             <h1>Igniting a Revolution in HR Innovation</h1>
             <img src={Line} alt="" />
           </div>
           <img src={man} alt="man" />
-        </section>
+        </motion.section>
       </main>
       <div className={Classes["line"]}></div>
     </>
